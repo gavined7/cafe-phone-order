@@ -21,7 +21,7 @@ export const CategoryFilter = ({
       <ScrollArea className="w-full">
         <div className="flex space-x-2 pb-2">
           <Button variant={selectedCategory === null ? "coffee" : "cream"} size="sm" onClick={() => onCategorySelect(null)} className="flex-shrink-0 rounded-full">
-            All Items
+            Most Popular
           </Button>
           
           {categories.map(category => <Button key={category.id} variant={selectedCategory === category.id ? "coffee" : "cream"} size="sm" onClick={() => onCategorySelect(category.id)} className="flex-shrink-0 rounded-full">
