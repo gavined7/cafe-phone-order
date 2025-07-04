@@ -57,7 +57,7 @@ export const ImageCarousel = () => {
         <ChevronLeft className="h-4 w-4" />
       </Button>
 
-      <Button variant="ghost" size="icon" onClick={goToNext} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border-0">
+      <Button variant="ghost" size="icon" onClick={goToNext} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border-0 rounded-full">
         <ChevronRight className="h-4 w-4" />
       </Button>
 
