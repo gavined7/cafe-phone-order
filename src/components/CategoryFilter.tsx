@@ -24,7 +24,7 @@ export const CategoryFilter = ({
             All Items
           </Button>
           
-          {categories.map(category => <Button key={category.id} variant={selectedCategory === category.id ? "coffee" : "cream"} size="sm" onClick={() => onCategorySelect(category.id)} className="flex-shrink-0">
+          {categories.map(category => <Button key={category.id} variant={selectedCategory === category.id ? "coffee" : "cream"} size="sm" onClick={() => onCategorySelect(category.id)} className="flex-shrink-0 rounded-full">
               {category.name}
             </Button>)}
         </div>
