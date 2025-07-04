@@ -22,6 +22,10 @@ interface Product {
   price: number;
   image_url?: string;
   is_available: boolean;
+  is_popular: boolean;
+  display_order: number;
+  created_at: string;
+  updated_at: string;
 }
 
 const Index = () => {
@@ -46,7 +50,7 @@ const Index = () => {
         // Fetch products
         const { data: productsData, error: productsError } = await supabase
           .from('products')
-          .select('*')
+          .select('id, category_id, name, description, price, image_url, is_available, is_popular, display_order, created_at, updated_at')
           .order('display_order');
 
         if (productsError) throw productsError;
@@ -73,7 +77,7 @@ const Index = () => {
     if (selectedCategory) {
       setFilteredProducts(products.filter(product => product.category_id === selectedCategory));
     } else {
-      setFilteredProducts(products);
+      setFilteredProducts(products.filter(product => product.is_popular));
     }
   }, [selectedCategory, products]);
 
@@ -109,7 +113,7 @@ const Index = () => {
             <h2 className="text-2xl font-bold text-coffee-dark">
               {selectedCategory 
                 ? categories.find(c => c.id === selectedCategory)?.name || 'Menu'
-                : 'Our Menu'
+                : 'Popular Menu'
               }
             </h2>
             <p className="text-muted-foreground">

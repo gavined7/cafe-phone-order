@@ -26,7 +26,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-gradient-cream shadow-warm border-b border-coffee-light/20">
+      <header className="sticky top-0 z-50 bg-gradient-to-b from-white/70 to-cream/60 shadow-warm border-b border-coffee-light/20 backdrop-blur-md">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">

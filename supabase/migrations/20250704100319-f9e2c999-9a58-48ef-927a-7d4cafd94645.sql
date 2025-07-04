@@ -179,15 +179,17 @@ INSERT INTO public.categories (name, description, display_order) VALUES
 ('Sandwiches', 'Artisan sandwiches', 4),
 ('Desserts', 'Sweet treats', 5);
 
+ALTER TABLE public.products ADD COLUMN is_popular BOOLEAN DEFAULT false;
+
 -- Insert sample products
-INSERT INTO public.products (category_id, name, description, price, display_order) VALUES
-((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Espresso', 'Rich and bold espresso shot', 3.50, 1),
-((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Cappuccino', 'Classic cappuccino with steamed milk', 4.50, 2),
-((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Latte', 'Smooth latte with artisanal foam art', 5.00, 3),
-((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Americano', 'Espresso with hot water', 4.00, 4),
-((SELECT id FROM public.categories WHERE name = 'Tea'), 'Earl Grey', 'Classic bergamot-infused black tea', 3.00, 1),
-((SELECT id FROM public.categories WHERE name = 'Tea'), 'Green Tea', 'Fresh organic green tea', 3.00, 2),
-((SELECT id FROM public.categories WHERE name = 'Pastries'), 'Croissant', 'Buttery French croissant', 3.50, 1),
-((SELECT id FROM public.categories WHERE name = 'Pastries'), 'Muffin', 'Blueberry muffin', 4.00, 2),
-((SELECT id FROM public.categories WHERE name = 'Sandwiches'), 'Club Sandwich', 'Classic club with bacon', 8.50, 1),
-((SELECT id FROM public.categories WHERE name = 'Desserts'), 'Cheesecake', 'New York style cheesecake', 6.00, 1);
+INSERT INTO public.products (category_id, name, description, price, display_order, is_popular) VALUES
+((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Espresso', 'Rich and bold espresso shot', 3.50, 1, true),
+((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Cappuccino', 'Classic cappuccino with steamed milk', 4.50, 2, false),
+((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Latte', 'Smooth latte with artisanal foam art', 5.00, 3, false),
+((SELECT id FROM public.categories WHERE name = 'Coffee'), 'Americano', 'Espresso with hot water', 4.00, 4, false),
+((SELECT id FROM public.categories WHERE name = 'Tea'), 'Earl Grey', 'Classic bergamot-infused black tea', 3.00, 1, false),
+((SELECT id FROM public.categories WHERE name = 'Tea'), 'Green Tea', 'Fresh organic green tea', 3.00, 2, true),
+((SELECT id FROM public.categories WHERE name = 'Pastries'), 'Croissant', 'Buttery French croissant', 3.50, 1, false),
+((SELECT id FROM public.categories WHERE name = 'Pastries'), 'Muffin', 'Blueberry muffin', 4.00, 2, false),
+((SELECT id FROM public.categories WHERE name = 'Sandwiches'), 'Club Sandwich', 'Classic club with bacon', 8.50, 1, false),
+((SELECT id FROM public.categories WHERE name = 'Desserts'), 'Cheesecake', 'New York style cheesecake', 6.00, 1, false);

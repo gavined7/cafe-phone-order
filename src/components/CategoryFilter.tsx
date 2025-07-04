@@ -18,8 +18,8 @@ export const CategoryFilter = ({
   return <div className="border border-coffee-light/20 rounded-lg py-[8px] px-[14px]">
       <h3 className="text-lg font-semibold text-coffee-dark mb-4">Categories</h3>
       
-      <ScrollArea className="w-full">
-        <div className="flex space-x-2 pb-2">
+      <div className="w-full overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden scrollbar-hide">
+        <div className="flex space-x-2 p-2">
           <Button variant={selectedCategory === null ? "coffee" : "cream"} size="sm" onClick={() => onCategorySelect(null)} className="flex-shrink-0 rounded-full">
             Most Popular
           </Button>
@@ -28,6 +28,6 @@ export const CategoryFilter = ({
               {category.name}
             </Button>)}
         </div>
-      </ScrollArea>
+      </div>
     </div>;
 };

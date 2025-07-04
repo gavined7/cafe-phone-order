@@ -46,15 +46,15 @@ export const ProductGrid = ({ products }: ProductGridProps) => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       {products.map((product) => (
         <Card 
           key={product.id}
           className="group border-coffee-light/20 shadow-warm hover:shadow-coffee transition-all duration-300 hover:-translate-y-1"
         >
-          <CardHeader className="pb-3">
+          <CardHeader className="pb-2 px-2 pt-2">
             {product.image_url && (
-              <div className="aspect-video rounded-lg overflow-hidden mb-3">
+              <div className="aspect-square rounded-lg overflow-hidden mb-2">
                 <img
                   src={product.image_url}
                   alt={product.name}
@@ -63,28 +63,27 @@ export const ProductGrid = ({ products }: ProductGridProps) => {
               </div>
             )}
             <div className="flex items-start justify-between">
-              <CardTitle className="text-lg text-coffee-dark">{product.name}</CardTitle>
-              <Badge variant="secondary" className="bg-gradient-warm text-coffee-dark">
+              <CardTitle className="text-base text-coffee-dark font-semibold truncate max-w-[70%]">{product.name}</CardTitle>
+              <Badge variant="secondary" className="bg-gradient-warm text-coffee-dark text-xs px-3 py-1 rounded-full">
                 {formatPrice(product.price)}
               </Badge>
             </div>
           </CardHeader>
           
-          <CardContent className="pb-3">
-            <p className="text-muted-foreground text-sm leading-relaxed">
+          <CardContent className="pb-3 px-3">
+            <p className="text-muted-foreground text-xs leading-snug line-clamp-1">
               {product.description}
             </p>
           </CardContent>
           
-          <CardFooter>
+          <CardFooter className="px-3 pb-3">
             <Button
               onClick={() => handleAddToCart(product)}
               disabled={!product.is_available}
               variant="coffee"
-              className="w-full"
+              className="w-full flex justify-center items-center rounded-full h-8 min-h-0"
             >
-              <ShoppingCart className="h-4 w-4 mr-2" />
-              {product.is_available ? 'Add to Cart' : 'Unavailable'}
+              <ShoppingCart className="h-4 w-4" />
             </Button>
           </CardFooter>
         </Card>
