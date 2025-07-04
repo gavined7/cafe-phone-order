@@ -23,7 +23,7 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
     setLoading(true);
     
     // Format phone number (simple validation)
-    const formattedPhone = phone.startsWith('+') ? phone : `+1${phone.replace(/\D/g, '')}`;
+    const formattedPhone = phone.startsWith('+') ? phone : `+855${phone.replace(/\D/g, '')}`;
     
     const { error } = await signInWithPhone(formattedPhone);
     
@@ -38,7 +38,7 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
     e.preventDefault();
     setLoading(true);
     
-    const formattedPhone = phone.startsWith('+') ? phone : `+1${phone.replace(/\D/g, '')}`;
+    const formattedPhone = phone.startsWith('+') ? phone : `+855${phone.replace(/\D/g, '')}`;
     const { error } = await verifyOtp(formattedPhone, otp);
     
     if (!error) {
@@ -75,7 +75,7 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
               <Input
                 id="phone"
                 type="tel"
-                placeholder="+1 (555) 123-4567"
+                placeholder="012 345 6789"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
