@@ -15,7 +15,7 @@ export const CategoryFilter = ({
   selectedCategory,
   onCategorySelect
 }: CategoryFilterProps) => {
-  return <div className="border border-coffee-light/20 rounded-lg">
+  return <div className="border border-coffee-light/20 rounded-lg py-[8px] px-[14px]">
       <h3 className="text-lg font-semibold text-coffee-dark mb-4">Categories</h3>
       
       <ScrollArea className="w-full">
